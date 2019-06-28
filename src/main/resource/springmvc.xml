@@ -16,13 +16,23 @@
 
     <!--视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-<!--        <property name="prefix" value="/WEB-INF/pages/" />-->
-<!--        <property name="suffix" value=".jsp"/>-->
+        <property name="prefix" value="/WEB-INF/pages/" />
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--配置自定义类型转换器-->
+    <bean id="conversionServiceFactoryBean" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean id="stringToDate" class="com.hxl.utils.StringToDate"></bean>
+            </set>
+        </property>
     </bean>
 
 
+
     <!--开启springmvc框架注解的支持-->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven conversion-service="conversionServiceFactoryBean"/>
 
 
 

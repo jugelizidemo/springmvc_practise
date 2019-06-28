@@ -1,4 +1,4 @@
-package com.hxl.Controller;
+package com.hxl.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

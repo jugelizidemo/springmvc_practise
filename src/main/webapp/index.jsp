@@ -12,6 +12,15 @@
 </head>
 <body>
     <h3>入门程序</h3>
-    <a href="hello">入门程序</a>
+    <%-- <a href="hello?key=1">入门程序</a>--%>
+    <%--  <a href="param/testparam?key=hehehe">请求参数绑定</a>--%>
+
+    <form action="param/saveAccount" method="post">
+        姓名: <input type="text" name="userName"/><br/>
+        密码: <input type="text" name="password"/><br/>
+        金额: <input type="text" name="money"/><br/>
+        日期: <input type="text" name="date"/><br/>
+        <input type="submit" value="提交"/>
+    </form>
 </body>
 </html>

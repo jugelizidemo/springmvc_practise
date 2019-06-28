@@ -1,4 +1,4 @@
-package com.hxl.Controller;
+package com.hxl.controller;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
