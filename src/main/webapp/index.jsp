@@ -11,9 +11,17 @@
     <title>Title</title>
 </head>
 <body>
-    <h3>入门程序</h3>
-    <%-- <a href="hello?key=1">入门程序</a>--%>
-    <%--  <a href="param/testparam?key=hehehe">请求参数绑定</a>--%>
+    <h3>测试程序</h3>
+
+    <hr>
+
+    <a href="hello?key=1">测试程序</a>
+
+    <hr>
+
+    <a href="param/testparam?key=hehehe">请求参数绑定</a>
+
+    <hr>
 
     <form action="param/saveAccount" method="post">
         姓名: <input type="text" name="userName"/><br/>
@@ -22,5 +30,23 @@
         日期: <input type="text" name="date"/><br/>
         <input type="submit" value="提交"/>
     </form>
+
+    <hr>
+
+    <a href="param/testservletapi">原生servletAPI测试</a>
+
+    <hr>
+
+    <a href="param/testPathVariable/999">PathVariable测试</a>
+
+    <hr>
+
+    <a href="param/testRequestHeader">requestHeader测试</a>
+
+    <hr>
+
+    <a href="param/testCookie">CookieValue测试</a>
+
+    <hr>
 </body>
 </html>
