@@ -19,7 +19,8 @@
     <filter-name>characterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  
+
+
   <servlet>
     <servlet-name>dispatcherServlet</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -30,15 +31,15 @@
     <load-on-startup>1</load-on-startup>
   </servlet>
 
+
+  <!--这里"/"是默认拦截所有的http请求的,因此会存在如下情况:
+  浏览器请求服端的js文件,css文件等静态资源时也都会被拦截下来
+  因为默认情况下,服务器端的静态资源不能随意访问(安全考虑?),
+  因此需要在springmvc.xml文件中配置服务器端的哪些资源是可以被读取到浏览器-->
   <servlet-mapping>
     <servlet-name>dispatcherServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-
-
-
-
-
 
 
 </web-app>

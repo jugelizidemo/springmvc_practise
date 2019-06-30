@@ -9,6 +9,27 @@
 <html>
 <head>
     <title>Title</title>
+
+    <Script src = "/js/jquery-3.4.1.min.js"></Script>
+
+    <script>
+        $(function(){
+            $("#btn").click(function(){
+                //alert("jquery...");
+                $.ajax({
+                    url:"param/testAjax",
+                    contentType:"application/json;charset=UTF-8",
+                    data:'{"userName":"hhh","password":"12334","money":"99999"}',
+                    dataType:"json",
+                    type:"post",
+                    success:function(data){
+                        alert(data.userName);
+                    }
+                });
+            });
+        });
+
+    </script>
 </head>
 <body>
     <h3>测试程序</h3>
@@ -48,5 +69,43 @@
     <a href="param/testCookie">CookieValue测试</a>
 
     <hr>
+
+    <a href="param/testRequestzf">请求转发测试</a>
+
+    <hr>
+
+    <a href="param/testRedict">重定向测试</a>
+
+    <hr>
+
+    <a href="param/testResponse">直接响应测试</a>
+
+    <hr>
+
+    <button id="btn">发送ajax请求</button>
+
+    <hr>
+
+   <form action ="param/testFileupload" method="post" enctype="multipart/form-data">
+       (传统方式)选择文件:<input type="file" name ="upload" value="选择文件"/><br/>
+       <input type="submit" value="上传" />
+   </form>
+
+    <hr>
+
+    <form action ="param/testFileuploadbyspringmvc" method="post" enctype="multipart/form-data">
+        (springmvc)选择文件:<input type="file" name ="upload" value="选择文件"/><br/>
+        <input type="submit" value="上传" />
+    </form>
+
+
+    <hr>
+
+    <form action ="param/testFileuploadoverserver" method="post" enctype="multipart/form-data">
+        (跨服务器文件上传)选择文件:<input type="file" name ="upload" value="选择文件"/><br/>
+        <input type="submit" value="上传" />
+    </form>
+
+
 </body>
 </html>
