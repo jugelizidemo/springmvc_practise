@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.UUID;
 
@@ -228,24 +229,31 @@ public class ParamController {
         //获取上传文件名
         String fileName = upload.getOriginalFilename();
         //文件名称唯一
-        String uuid = UUID.randomUUID().toString();
+        String uuid = UUID.randomUUID().toString().replace("-","");
         fileName = uuid + "_" +fileName;
 
+
+        //文件名urlencode编码,防止中文命名的文件导致图片服务器不识别url(浏览器使用搜索时输入中文关键词,
+        //浏览器地址栏会自动将中文进行url编码,原理一致)
+        fileName = URLEncoder.encode(fileName,"utf8");
+
         //定义上传文件服务器的路径
-        String path = "http://localhost:8090/fileupload/";
+        String path = "http://localhost:8090/fileupload/" + fileName;
+
 
         //创建客户端对象
         Client client = Client.create();
 
+
         //与图片服务器进行连接
-        WebResource webResource = client.resource(path + fileName );
+        WebResource webResource = client.resource(path);
 
         //完成文件上传,夸服务器上传
         webResource.put(upload.getBytes());
 
-        System.out.println("testFileuploadoverserver success " +    path);
-        return "success";
-    }
+        System.out.println("testFileuploadoverserver success " + fileName);
+                return "success";
+                }
 
 
-}
+                }
