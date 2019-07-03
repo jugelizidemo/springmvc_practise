@@ -45,5 +45,18 @@
     </bean>
 
 
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--要拦截的具体方法-->
+            <mvc:mapping path="/param/testInterceptor"/>
+            <!--不要拦截的方法-->
+          <!--  <mvc:exclude-mapping path=""/>-->
+            <!--配置拦截器对象-->
+            <bean class="com.hxl.controller.interceptor.MyInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
 
 </beans>

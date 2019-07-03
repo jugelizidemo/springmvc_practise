@@ -107,5 +107,9 @@
     </form>
 
 
+    <hr>
+
+    <a href="param/testInterceptor">拦截器测试</a>
+
 </body>
 </html>
